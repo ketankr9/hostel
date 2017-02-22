@@ -10,3 +10,4 @@ git add -A
 git commit -m "commit message"
 git pull origin master
 git push origin master
+
