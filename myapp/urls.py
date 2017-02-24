@@ -10,6 +10,6 @@ urlpatterns=[
  url(r'registeration/$',views.register,name="Registeration"),
  url(r'studentprofile/(?P<roll>[0-9]{8})/$',views.studprofile,name="Student profile"),
  url(r'messMonthly/$',views.messbill,name='Mess bill'),
- url(r'policy/$',views.policy,name="Hostel policy page")
+ url(r'policy/$',views.policy,name="Hostel policy page"),
  url(r'^$',views.index, name='index'),
  ]

@@ -3,9 +3,11 @@ from django.http import HttpResponse
 
 
 def index(request):
+    dic={}
     return render(request,'index.html',dic)
 
 def index2(request):
+    dic={}
     return render(request,'index2.html',dic)
 
 def contactus(request):
@@ -32,6 +34,7 @@ def discussion(request):
     return render(request,'discussion.html',dic)
 
 def register(request):
+    dic={}
     print "Registeration page"
     if request.method=='POST':
         data=request.POST
@@ -43,6 +46,7 @@ def studprofile(request,roll):
     dic={}
     response=render(request,'index2.html',dic)
     return response
-
-def past(request):
-    return HttpResponse("this is a past page of my app")
+def messbill(request):
+    pass
+def policy(request):
+    pass
