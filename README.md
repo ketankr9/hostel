@@ -10,3 +10,4 @@ create a directory and cd into it
 #git add -A
 #git commit -m "commit message"
 #git push origin master
+Note: We are going to do the database work at the end, till then we will be working with hardcoded array lists.
