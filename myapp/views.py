@@ -31,10 +31,12 @@ def login(request,num):
         print data['username'],data['password']
         # check from database here
         #at last
-        response=render(request,'index2.html',dic)
-    else:
-        response=render(request,'login.html',dic)
-
+        if data['username']=="hostel" and data['password']=="portal":
+            print "DEBUG:username & password matched\nRedirecting to the homepage of stud's profile"
+            response=render(request,'index2.html',dic)
+            return response
+    print "user & password did't match redirecting to login page again"
+    response=render(request,'login.html',dic)
     return response
 
 def discussion(request):
@@ -46,8 +48,13 @@ def register(request):
     print "Registeration page"
     if request.method=='POST':
         data=request.POST
-        print "print here the received values eg data['usrname'],data['password'], etc"
-    return render(request,'registeration.html',dic)
+        print "DEBUG: data received data['usrname'] etc",data['username'],data['name']
+        # put obtained value in the database
+        #get his/her hosel from database and redrect to index2/limbdi
+        response=render(request,'index2.html',dic)
+        return response
+    response=render(request,'registeration.html',dic)
+    return response
 
 def studprofile(request,roll):
     print roll
