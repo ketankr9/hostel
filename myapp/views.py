@@ -20,12 +20,20 @@ def grieve(request):
 
 def login(request,num):
     dic={}
-    print "num received",num
+    print "LOGIN:num:",num
     #redirection here
     # if 'cook' in request.COOKIES:
     #     print "Cookies exists::COOKED"
     #
-    response=render(request,'login.html',dic)
+    if request.method=="POST":
+        print "DEBUG:RECEIVED POST(LOGIN)"
+        data=request.POST
+        print data['username'],data['password']
+        # check from database here
+        #at last
+        response=render(request,'index2.html',dic)
+    else:
+        response=render(request,'login.html',dic)
 
     return response
 
