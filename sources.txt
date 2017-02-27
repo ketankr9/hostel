@@ -1,0 +1,7 @@
+deb http://archive.ubuntu.com/ubuntu xenial main universe restricted multiverse
+deb-src http://archive.ubuntu.com/ubuntu xenial main universe restricted multiverse #Added by software-properties
+deb http://security.ubuntu.com/ubuntu/ xenial-security universe multiverse main restricted
+deb http://archive.ubuntu.com/ubuntu xenial-updates universe multiverse main restricted
+deb http://archive.ubuntu.com/ubuntu xenial-backports universe multiverse main restricted
+deb https://cli-assets.heroku.com/branches/stable/apt ./
+# deb-src https://cli-assets.heroku.com/branches/stable/apt ./

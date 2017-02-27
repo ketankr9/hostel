@@ -57,9 +57,10 @@ def register(request):
     return response
 
 def studprofile(request,roll):
+    #find details related to the `roll` number
+    dic={"name":"Shubham","roll":"15074014","hostel":"Limbdi","room":"B235","year":"2","branch":"xyz","course":"IMD"}
     print roll
-    dic={}
-    response=render(request,'index2.html',dic)
+    response=render(request,'profile.html',dic)
     return response
 def messbill(request):
     pass
