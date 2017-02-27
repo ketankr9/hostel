@@ -50,7 +50,7 @@ def register(request):
         data=request.POST
         print "DEBUG: data received data['usrname'] etc",data['username'],data['name']
         # put obtained value in the database
-        #get his/her hosel from database and redrect to index2/limbdi
+        #get his/her hostel from database and redrect to index2/limbdi
         response=render(request,'index2.html',dic)
         return response
     response=render(request,'registeration.html',dic)
@@ -62,6 +62,12 @@ def studprofile(request,roll):
     response=render(request,'index2.html',dic)
     return response
 def messbill(request):
-    pass
+    dict={'january':'1000',
+           'feburary':'2000',
+              'march':'3000', 'april':'4000','may':'5000','june':'6000','july':'7000','august':'8000','september':'9000',
+                 'october':'10000','november':'11000','december':'12000'}
+
+
+
 def policy(request):
     pass
