@@ -25,6 +25,7 @@ def login(request,num):
     # if 'cook' in request.COOKIES:
     #     print "Cookies exists::COOKED"
     #
+    dic["value"]="Please enter your userid and password"
     if request.method=="POST":
         print "DEBUG:RECEIVED POST(LOGIN)"
         data=request.POST
@@ -35,7 +36,10 @@ def login(request,num):
             print "DEBUG:username & password matched\nRedirecting to the homepage of stud's profile"
             response=render(request,'index2.html',dic)
             return response
+        else:
+            dic["value"]="Wrong password or userid"
     print "user & password did't match redirecting to login page again"
+
     response=render(request,'login.html',dic)
     return response
 
