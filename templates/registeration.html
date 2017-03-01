@@ -1,19 +1,11 @@
+{% extends 'base.html' %}
+{% block title %}Registration{% endblock %}
 {% load staticfiles %}
-<!DOCTYPE html>
-<html >
-<head>
-  <meta charset="UTF-8">
-  <title>Register</title>
+{% block content %}
 
+<link rel="stylesheet" href="{% static "login/css/style.css" %}">
 
-
-      <link rel="stylesheet" href="form/css/style.css">
-
-
-</head>
-
-<body>
-  <div id="login-box">
+    <div class="login">
     <form action="/registeration/" method="post">
       {% csrf_token %}
   <div class="left">
@@ -27,8 +19,7 @@
     <input type="submit" name="signup_submit" value="Sign me up" />
   </div>
 </form>
-
-</div>
 <a href="javascript:window.print()"><input type="submit" value="print this page"/></a>
-</body>
-</html>
+</div>
+
+{% endblock %}
