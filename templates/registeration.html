@@ -1,18 +1,10 @@
+{% extends 'base.html' %}
+{% block title %}Contact Us{% endblock %}
 {% load staticfiles %}
-<!DOCTYPE html>
-<html >
-<head>
-  <meta charset="UTF-8">
-  <title>Register</title>
+{% block content %}
 
+<link rel="stylesheet" href="{% static "login/css/style.css" %}">
 
-
-      <link rel="stylesheet" href="{% static "login/css/style.css" %}">
-
-
-</head>
-
-<body>
     <div class="login">
     <form action="/registeration/" method="post">
       {% csrf_token %}
@@ -29,5 +21,5 @@
 </form>
 <a href="javascript:window.print()"><input type="submit" value="print this page"/></a>
 </div>
-</body>
-</html>
+
+{% endblock %}
