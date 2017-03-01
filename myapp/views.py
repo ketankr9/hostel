@@ -1,5 +1,5 @@
 from django.shortcuts import render
-from django.http import HttpResponse
+from django.http import HttpResponse,HttpResponseRedirect
 
 
 def index(request):
@@ -34,8 +34,9 @@ def login(request,num):
         #at last
         if data['username']=="hostel" and data['password']=="portal":
             print "DEBUG:username & password matched\nRedirecting to the homepage of stud's profile"
-            response=render(request,'index2.html',dic)
-            return response
+            return HttpResponseRedirect('/index2/')
+            # response=render(request,'index2.html',dic)
+            # return response
         else:
             dic["value"]="Wrong password or userid"
     print "user & password did't match redirecting to login page again"
