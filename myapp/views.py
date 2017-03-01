@@ -25,7 +25,7 @@ def login(request,num):
     # if 'cook' in request.COOKIES:
     #     print "Cookies exists::COOKED"
     #
-    dic["value"]="Please enter your userid and password"
+    dic["value"]="Enter userid and password"
     if request.method=="POST":
         print "DEBUG:RECEIVED POST(LOGIN)"
         data=request.POST
