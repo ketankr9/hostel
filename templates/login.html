@@ -1,16 +1,10 @@
- 
-<!DOCTYPE html>
-<html >
-<head>
-  <meta charset="UTF-8">
-  <title>Login</title>
-  
-    <link href="{% static "login/css/style.css" %}" rel="stylesheet" >
+{% extends 'myapp/base.html' %}
+{% block title %}Login{% endblock %}
+{% block content %}
 
-  
-</head>
+   <link href="{% static "login/css/style.css" %}" rel="stylesheet" >
 
-<body>
+     
   <div class="login">
     <form action="/login/0/" method="post">
     {% csrf_token %}
@@ -22,7 +16,4 @@
     </form>
 </div>
   
-   
-
-</body>
-</html>
+{% endblock %}
