@@ -1,10 +1,11 @@
-{% extends 'myapp/base.html' %}
+{% extends 'base.html' %}
 {% block title %}Login{% endblock %}
 {% block content %}
+{% load staticfiles %}
 
    <link href="{% static "login/css/style.css" %}" rel="stylesheet" >
 
-     
+
   <div class="login">
     <form action="/login/0/" method="post">
     {% csrf_token %}
@@ -15,5 +16,5 @@
         <button type="submit" class="btn btn-primary btn-block btn-large">Let me in.</button>
     </form>
 </div>
-  
+
 {% endblock %}
