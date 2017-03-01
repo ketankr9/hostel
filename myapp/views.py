@@ -25,6 +25,7 @@ def login(request,num):
     # if 'cook' in request.COOKIES:
     #     print "Cookies exists::COOKED"
     #
+    dic["value"]="Enter userid and password"
     if request.method=="POST":
         print "DEBUG:RECEIVED POST(LOGIN)"
         data=request.POST
@@ -35,7 +36,10 @@ def login(request,num):
             print "DEBUG:username & password matched\nRedirecting to the homepage of stud's profile"
             response=render(request,'index2.html',dic)
             return response
+        else:
+            dic["value"]="Wrong password or userid"
     print "user & password did't match redirecting to login page again"
+
     response=render(request,'login.html',dic)
     return response
 
@@ -57,9 +61,10 @@ def register(request):
     return response
 
 def studprofile(request,roll):
+    #find details related to the `roll` number
+    dic={"name":"Shubham","roll":"15074014","hostel":"Limbdi","room":"B235","year":"2","branch":"xyz","course":"IMD"}
     print roll
-    dic={}
-    response=render(request,'index2.html',dic)
+    response=render(request,'profile.html',dic)
     return response
 def messbill(request):
     dict={'january':'1000',
