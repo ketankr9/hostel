@@ -1,13 +1,13 @@
-{% load staticfiles %}
+ 
 <!DOCTYPE html>
 <html >
 <head>
   <meta charset="UTF-8">
   <title>Login</title>
+  
+    <link href="{% static "login/css/style.css" %}" rel="stylesheet" >
 
-    <link rel="stylesheet" href="{% static "login/css/style.css" %}">
-
-
+  
 </head>
 
 <body>
@@ -15,14 +15,14 @@
     <form action="/login/0/" method="post">
     {% csrf_token %}
     <h1>Sign In</h1>
-    <center><h4>{{ value }}</h4></center>
-    	<input type="text" name="username" placeholder="Username" required="required" />
-        <input type="password" name="password" placeholder="Password" required="required" />
+    <h5>{{ value }}</h5>
+    	<input type="text" name="u" placeholder="Username" required="required" />
+        <input type="password" name="p" placeholder="Password" required="required" />
         <button type="submit" class="btn btn-primary btn-block btn-large">Let me in.</button>
     </form>
 </div>
-
-
+  
+   
 
 </body>
 </html>
