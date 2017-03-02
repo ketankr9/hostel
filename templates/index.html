@@ -57,7 +57,7 @@
                 <a href="/registeration/" onclick=$("#menu-close").click();>Register</a>
             </li>
             <li>
-                <a href="/login/0/" onclick=$("#menu-close").click();>Login</a>
+                <a href="/login/" onclick=$("#menu-close").click();>Login</a>
             </li>
         </ul>
     </nav>
@@ -70,6 +70,13 @@
             <br>
             <a href="#services" class="btn btn-dark btn-lg">Find Out More</a>
         </div>
+
+              {% if user.is_authenticated %}
+                    Hi {{ user.username }}!
+                    <a href="/logout/">logout</a>
+                  {% else %}
+                    <a href="/login/">login</a>
+                  {% endif %}
     </header>
 
 

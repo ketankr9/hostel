@@ -1,5 +1,6 @@
 from django.shortcuts import render
 from django.http import HttpResponse,HttpResponseRedirect
+from django.contrib.auth import authenticate
 
 
 def index(request):
@@ -49,6 +50,11 @@ def discussion(request):
     return render(request,'discussion.html',dic)
 
 def register(request):
+    if not request.user.is_authenticated:
+        print "Login required",request.user.is_authenticated
+    # Do something for anonymous users.
+        return render(request,'login.html',{})
+    # Do something for authenticated users.
     dic={}
     print "Registeration page"
     if request.method=='POST':
@@ -68,6 +74,7 @@ def studprofile(request,roll):
     response=render(request,'profile.html',dic)
     return response
 def messbill(request):
-    return render(request,'messMonthly.html')
+    dic={}
+    return render(request,'messMonthly.html',dic)
 def policy(request):
     pass
