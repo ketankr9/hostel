@@ -68,6 +68,6 @@ def studprofile(request,roll):
     response=render(request,'profile.html',dic)
     return response
 def messbill(request):
-    pass
+    return render(request,'messMonthly.html')
 def policy(request):
     pass
