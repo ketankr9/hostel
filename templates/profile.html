@@ -1,18 +1,100 @@
-<!DOCTYPE html>
-<html >
-<head>
-  <meta charset="UTF-8">
-  <title>Profile page</title>
+
+{% extends 'base.html' %}
+{% block title %} Profile {% endblock %}
+{% load staticfiles %}
+{% block content %}
+
+<style type="text/css">
+	*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html {
+  font-size: 16px;
+}
+body { 
+  padding-top: 40px;
+  background: rgb(220,220,220);
+  font-family:'Nunito', sans-serif;
+}
 
 
-    <link rel="stylesheet" href="form/css/style.css">
+
+.profile-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 300px;
+  }
+
+.profile-overlay {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 90%;
+  height: 90%;
+  background: rgba(0,0,20,.6);
+  border-radius: 10px;
+  padding: 20px;
+}
+
+.profile-img img{
+  border-radius: 100%;
+}
+.profile-info {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.student-name {
+  font-size: 2rem;
+  color: rgb(255,255,255);
+}
+.instrument {
+  font-size: 1.2rem;
+  color: rgb(200,200,100);
+}
+
+main {
+  padding: 10px;
+}
 
 
-</head>
 
-<body>
-Body here
+h2 {
+  margin: 0;
+}
+</style>
 
+<div class="wrapper">
+  <header class="page-head">
+    <i class="fa fa-angle-left" aria-hidden="true"></i>
+    <span class="view-title">
+      Profile
+    </span>
+   <i class="fa fa-bars" aria-hidden="true"></i> 
+  </header>
+  <div class="profile-container">
+    <div class="profile-overlay">
+      <div class="profile-img">
+        <img src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/277355/42.jpg">
+      </div>
+      <div class="profile-info">
+        <span class="student-name">
+            Jonathan Reese
+        </span>
+        <span class="instrument">
+         tenor saxophone
+        </span>
+      </div>
+    </div>
+  </div>
+  <main>
+    
+    
+  </main>
+</div>
 
-</body>
-</html>
+{% endblock %}
