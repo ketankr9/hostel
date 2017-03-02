@@ -3,7 +3,7 @@
 {% load staticfiles %}
 {% block content %}
 <style>
-  
+
 
 .form-box {
     width: 50%;
@@ -26,8 +26,9 @@
   <div class="row">
     <div class="form-box">
         <h1>Form <span>Registration</span></h1>
-          <form role="form" id="contact-form">
+          <form action="/registeration/" method="post" id="contact-form">
             <!-- name field -->
+            {% csrf_token %}
                 <div class="form-group">
                 <div id="nameError" class="sr-only" role="alert"></div>
                 <label for="form-name-field" class="sr-only">Name</label>
@@ -58,10 +59,10 @@
                 <label>
                     <input type="checkbox" id="checkbox-form"> I agree to terms and condition.
                 </label>
-             
+
             </div>
             <button type="submit" class="btn btn-default">Submit</button>
-          </form>   
+          </form>
     </div>
   </div>
 </div>
