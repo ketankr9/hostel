@@ -74,21 +74,11 @@ def studprofile(request,roll):
     response=render(request,'profile.html',dic)
     return response
 def messbill(request):
-<<<<<<< HEAD
-    dic={}
-    return render(request,'messMonthly.html',dic)
-=======
-<<<<<<< HEAD
     dict={'january':'1000',
            'feburary':'2000',
               'march':'3000', 'april':'4000','may':'5000','june':'6000','july':'7000','august':'8000','september':'9000',
                  'october':'10000','november':'11000','december':'12000'}
+    return render(request,'messMonthly.html',dict)
 
-
-
-=======
-    return render(request,'messMonthly.html')
->>>>>>> b757b319d723616c4a87762f7fec4e448a56d62c
->>>>>>> 83f9ba73adf132eabebb6db518d53fb061f18138
 def policy(request):
     pass
