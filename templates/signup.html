@@ -1,7 +1,4 @@
-{% extends 'base.html' %}
-{% block title %} SignUp {% endblock %}
-{% load staticfiles %}
-{% block content %}
+<!-- 
 
 <style type="text/css">
 .form-style-1 {
@@ -73,10 +70,13 @@
 .form-style-1 .required{
     color:red;
 }
-</style>
+</style> -->
+<DOCTYPE! html>
+<html>
+<body>
 <form>
 <ul class="form-style-1">
-  <form action="/signup/" method="POST">
+  <form action="/signup/" method="post">
     {% csrf_token %}
     <li><label>Username <span class="required">*</span></label>
       <input type="text" name="roll" class="field-divided" placeholder="Institute rollnumber" /></li>
@@ -91,6 +91,5 @@
   </form>
 </ul>
 </form>
-
-
-{% endblock %}
+</body>
+</html>

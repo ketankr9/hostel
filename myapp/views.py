@@ -87,7 +87,7 @@ def signup(request):
         print "DEBUG:POST received"
         print data["passwd"]
         return render(request,'login.html',dic)
-    response=render(request,'signup.html',dic)
+    response=render(request,'signup2.html',dic)
     return response
 
 def policy(request):
