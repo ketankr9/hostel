@@ -1,7 +1,7 @@
 from django.shortcuts import render
 from django.http import HttpResponse,HttpResponseRedirect
 from django.contrib.auth import authenticate
-
+from django.contrib.auth.models import User
 
 def index(request):
     dic={}
@@ -81,11 +81,14 @@ def messbill(request):
     return render(request,'messMonthly.html',dict)
 def signup(request):
     dic={}
+
     print request.method
     if request.method=='POST':
         data=request.POST
         print "DEBUG:POST received"
         print data["passwd"]
+        user=User.objects.create_user(data['username'],"",data['passwd'])
+        user.save()
         return render(request,'login.html',dic)
     response=render(request,'signup2.html',dic)
     return response
