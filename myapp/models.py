@@ -43,15 +43,13 @@ class AuthUser(models.Model):
     password = models.CharField(max_length=128)
     last_login = models.DateTimeField(blank=True, null=True)
     is_superuser = models.IntegerField()
-    #username = models.CharField(unique=True, max_length=150)
-    roll_no = models.CharField(unique=True, max_length=150)
+    username = models.CharField(unique=True, max_length=150)
     first_name = models.CharField(max_length=30)
     last_name = models.CharField(max_length=30)
     email = models.CharField(max_length=254)
     is_staff = models.IntegerField()
     is_active = models.IntegerField()
     date_joined = models.DateTimeField()
-    room_no = models.CharField(max_length=5)
 
     class Meta:
         managed = False
@@ -124,10 +122,65 @@ class DjangoSession(models.Model):
 
 class Limbdi2016(models.Model):
     room = models.IntegerField(blank=True, null=True)
+    list_display = ('room')
     class Meta:
-        managed = True
+        managed = False
         db_table = 'limbdi2016'
     def __str__(self):
         return str(self.room)
-    def natural_key(self):
-        return (self.room,)
+
+
+class LimbdiHostel(models.Model):
+    room_no = models.IntegerField(primary_key=True)
+    a = models.CharField(db_column='A', max_length=10, blank=True, null=True)  # Field name made lowercase.
+    b = models.CharField(db_column='B', max_length=10, blank=True, null=True)  # Field name made lowercase.
+
+    class Meta:
+        managed = False
+        db_table = 'limbdi_hostel'
+
+
+class LimbdiMessOdd(models.Model):
+    roll_no = models.IntegerField(primary_key=True)
+    jan = models.CharField(max_length=10, blank=True, null=True)
+    feb = models.CharField(max_length=10, blank=True, null=True)
+    mar = models.CharField(max_length=10, blank=True, null=True)
+    apr = models.CharField(max_length=10, blank=True, null=True)
+    may = models.CharField(max_length=10, blank=True, null=True)
+    jun = models.CharField(max_length=10, blank=True, null=True)
+    jul = models.CharField(max_length=10, blank=True, null=True)
+    aug = models.CharField(max_length=10, blank=True, null=True)
+    sep = models.CharField(max_length=10, blank=True, null=True)
+    oct = models.CharField(max_length=10, blank=True, null=True)
+    nov = models.CharField(max_length=10, blank=True, null=True)
+    dece = models.CharField(max_length=10, blank=True, null=True)
+
+    class Meta:
+        managed = False
+        db_table = 'limbdi_mess_odd'
+
+
+class Profile(models.Model):
+    roll_no = models.IntegerField(primary_key=True)
+    name = models.CharField(max_length=30, blank=True, null=True)
+    branch = models.CharField(max_length=20, blank=True, null=True)
+    email = models.CharField(max_length=50, blank=True, null=True)
+    course = models.CharField(max_length=20, blank=True, null=True)
+    passing_year = models.IntegerField(blank=True, null=True)
+    mobile = models.CharField(max_length=15, blank=True, null=True)
+    bank_acount_no = models.CharField(max_length=20, blank=True, null=True)
+    ifs_code = models.CharField(max_length=20, blank=True, null=True)
+    branch_address = models.CharField(max_length=255, blank=True, null=True)
+    father_name = models.CharField(max_length=100, blank=True, null=True)
+    home_address = models.CharField(max_length=255, blank=True, null=True)
+    home_phone = models.CharField(max_length=20, blank=True, null=True)
+    guardian_phone = models.CharField(max_length=20, blank=True, null=True)
+    guardian_address = models.CharField(max_length=255, blank=True, null=True)
+
+    class Meta:
+        managed = False
+        #order_with_respect_to = 'roll_no'
+        db_table = 'profile'
+        ordering=('roll_no',)
+    def __str__(self):
+        return ""+str(self.roll_no)+" "+self.name

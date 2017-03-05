@@ -2,7 +2,9 @@ from django.shortcuts import render
 from django.http import HttpResponse,HttpResponseRedirect
 from django.contrib.auth import authenticate
 from django.contrib.auth.models import User
-
+from django.db import connection
+from reportlab.pdfgen import canvas #dynamic pdf generation
+from io import BytesIO
 def index(request):
     dic={}
     return render(request,'index.html',dic)
@@ -59,8 +61,11 @@ def register(request):
     print "Registeration page"
     if request.method=='POST':
         data=request.POST
-        print "DEBUG: data received data['usrname'] etc",data['username'],data['name']
+        #print "DEBUG: data received data['usrname'] etc",data['username'],data['name']
         # put obtained value in the database
+        cursor=connection.cursor()
+        cursor.execute('''INSERT INTO limbdi2016(room) VALUES(%s)''',[data['ifsc']])
+        cursor.close()
         #get his/her hostel from database and redrect to index2/limbdi
         response=render(request,'index2.html',dic)
         return response
@@ -81,7 +86,6 @@ def messbill(request):
     return render(request,'messMonthly.html',dict)
 def signup(request):
     dic={}
-
     print request.method
     if request.method=='POST':
         data=request.POST
@@ -95,3 +99,16 @@ def signup(request):
 
 def policy(request):
     pass
+
+def createPDF(request):
+    response = HttpResponse(content_type='application/pdf')
+    response['Content-Disposition']='attachment; filename="registerationForm.pdf"'
+    buff=BytesIO()
+    p=canvas.Canvas(buff)
+    p.drawString(100,100,"100:100 Hello World.")
+    p.showPage()
+    p.save()
+    pdf=buff.getvalue()
+    buff.close()
+    response.write(pdf)
+    return response
