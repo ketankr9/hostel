@@ -41,6 +41,8 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
      'myapp',
+     'appadmin',
+
 ]
 
 MIDDLEWARE = [
@@ -133,3 +135,5 @@ USE_TZ = True
 STATICFILES_DIRS=[STATIC_DIR,]
 STATIC_DIRS='/static/'
 STATIC_URL = '/static/'
+
+LOGIN_REDIRECT_URL='/'
