@@ -11,10 +11,11 @@ urlpatterns=[
  url(r'^logout/$',auth_views.logout,{'next_page':'/'},name="logout"),
  url(r'^discussion/(?P<num>[0-4]{1})/$',views.discussion,name="Discussion with group"),
  url(r'registeration/$',views.register,name="Registeration"),
+ url(r'registeration2/$',views.register2,name="Registeration"),
  url(r'studentprofile/(?P<roll>[0-9]{8})/$',views.studprofile,name="Student profile"),
  url(r'messMonthly/$',views.messbill,name='Mess bill'),
  url(r'policy/$',views.policy,name="Hostel policy page"),
  url(r'signup/$',views.signup,name="Sign up page"),
- url(r'downloadForm',views.createPDF, name='PDF'),
+ url(r'downloadForm',views.createPDF, name='index'),
  url(r'^$',views.index, name='index'),
  ]

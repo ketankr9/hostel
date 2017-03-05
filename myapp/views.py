@@ -1,8 +1,10 @@
-from django.shortcuts import render
+from django.shortcuts import render,redirect
 from django.http import HttpResponse,HttpResponseRedirect
 from django.contrib.auth import authenticate
 from django.contrib.auth.models import User
 from django.db import connection
+from .forms import *
+
 from reportlab.pdfgen import canvas #dynamic pdf generation
 from io import BytesIO
 def index(request):
@@ -63,14 +65,31 @@ def register(request):
         data=request.POST
         #print "DEBUG: data received data['usrname'] etc",data['username'],data['name']
         # put obtained value in the database
-        cursor=connection.cursor()
-        cursor.execute('''INSERT INTO limbdi2016(room) VALUES(%s)''',[data['ifsc']])
-        cursor.close()
+        # cursor=connection.cursor()
+        # cursor.execute('''INSERT INTO limbdi2016(room) VALUES(%s)''',[data['ifsc']])
+        # cursor.close()
         #get his/her hostel from database and redrect to index2/limbdi
+        des=open("/home/uk/django/hostel/pic.png",'wb+')
+        for chunk in (request.FILES['file']).chunk():
+            des.write(chunk)
+        des.close()
+        print request.FILES['file'].name
         response=render(request,'index2.html',dic)
         return response
     response=render(request,'registeration.html',dic)
     return response
+def register2(request):
+    if request.method=='POST':
+        form=ProfileForm(request.POST)
+        if form.is_valid():
+            post=form.save(commit=False)
+            post.save()
+            return redirect('/')
+    else:
+        form=ProfileForm()
+
+    return render(request,'registeration2.html',{'form':form})
+
 
 def studprofile(request,roll):
     #find details related to the `roll` number

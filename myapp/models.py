@@ -176,7 +176,7 @@ class Profile(models.Model):
     home_phone = models.CharField(max_length=20, blank=True, null=True)
     guardian_phone = models.CharField(max_length=20, blank=True, null=True)
     guardian_address = models.CharField(max_length=255, blank=True, null=True)
-
+    #pic = models.FileField(upload_to="/home/uk/django/hostel/")
     class Meta:
         managed = False
         #order_with_respect_to = 'roll_no'
