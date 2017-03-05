@@ -14,5 +14,6 @@ urlpatterns=[
  url(r'studentprofile/(?P<roll>[0-9]{8})/$',views.studprofile,name="Student profile"),
  url(r'messMonthly/$',views.messbill,name='Mess bill'),
  url(r'policy/$',views.policy,name="Hostel policy page"),
+ url(r'signupp/$',views.signup,name="Sign up page"),
  url(r'^$',views.index, name='index'),
  ]
