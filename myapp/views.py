@@ -79,6 +79,16 @@ def messbill(request):
               'march':'3000', 'april':'4000','may':'5000','june':'6000','july':'7000','august':'8000','september':'9000',
                  'october':'10000','november':'11000','december':'12000'}
     return render(request,'messMonthly.html',dict)
+def signup(request):
+    dic={}
+    print request.method
+    if request.method=='POST':
+        data=request.POST
+        print "DEBUG:POST received"
+        print data["passwd"]
+        return render(request,'login.html',dic)
+    response=render(request,'signup.html',dic)
+    return response
 
 def policy(request):
     pass
