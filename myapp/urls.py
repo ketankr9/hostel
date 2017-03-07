@@ -16,6 +16,6 @@ urlpatterns=[
  url(r'messMonthly/$',views.messbill,name='Mess bill'),
  url(r'policy/$',views.policy,name="Hostel policy page"),
  url(r'signup/$',views.signup,name="Sign up page"),
- url(r'downloadForm',views.createPDF, name='index'),
+ # url(r'downloadForm',views.createPDF, name='index'),
  url(r'^$',views.index, name='index'),
  ]
