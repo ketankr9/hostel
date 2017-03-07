@@ -4,8 +4,8 @@ from django.contrib.auth import authenticate
 from django.contrib.auth.models import User
 from django.db import connection
 from .forms import *
+#from reportlab.pdfgen import canvas #dynamic pdf generation
 
-from reportlab.pdfgen import canvas #dynamic pdf generation
 from io import BytesIO
 def index(request):
     dic={}
@@ -80,7 +80,7 @@ def register(request):
     return response
 def register2(request):
     if not request.user.is_authenticated:
-        return HttpResponse('''LOGIN REQUIRED, then come here to register<br/> <a href="/signup/">Signup</a> <a href="/login/">Login</a>''')
+        return HttpResponse('''LOGIN REQUIRED, come here when you had already logged in<br/> <a href="/signup/">Signup</a> <a href="/login/">Login</a>''')
 
     if request.method=='POST':
         form=ProfileForm(request.POST)
@@ -131,15 +131,15 @@ def signup(request):
 def policy(request):
     pass
 
-def createPDF(request):
-    response = HttpResponse(content_type='application/pdf')
-    response['Content-Disposition']='attachment; filename="registerationForm.pdf"'
-    buff=BytesIO()
-    p=canvas.Canvas(buff)
-    p.drawString(100,100,"100:100 Hello World.")
-    p.showPage()
-    p.save()
-    pdf=buff.getvalue()
-    buff.close()
-    response.write(pdf)
-    return response
+# def createPDF(request):
+#     response = HttpResponse(content_type='application/pdf')
+#     response['Content-Disposition']='attachment; filename="registerationForm.pdf"'
+#     buff=BytesIO()
+#     p=canvas.Canvas(buff)
+#     p.drawString(100,100,"100:100 Hello World.")
+#     p.showPage()
+#     p.save()
+#     pdf=buff.getvalue()
+#     buff.close()
+#     response.write(pdf)
+#     return response
