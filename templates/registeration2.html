@@ -3,7 +3,17 @@
 <body>
     <h1>New post</h1>
     <form method="POST" class="post-form">{% csrf_token %}
-        {{ form.as_p }}
+        <!-- {{ form.roll_no.errors }}
+        Institute Roll number<br/>
+        {{ form.roll_no }} <br/>
+        Name:<br/>
+        {{ form.name }}<br/>
+        Branch:<br/>
+        {{ form.branch }}<br/>
+        Email:<br/>
+        {{ form.email }} {{ form.email.errors }}<br/> -->
+        {{  form.as_p }}
+
         <button type="submit" class="save btn btn-default">Save</button>
     </form>
 

@@ -161,16 +161,33 @@ class LimbdiMessOdd(models.Model):
 
 
 class Profile(models.Model):
+    course_choices=(
+    ('IMD','Integrated Masters Degree'),
+    ('IDD','Integrated Dual Degree'),
+    ('B.Tech','Bachlors of Technology'),
+    ('PhD','Doctors Degree'),
+    ('None','None of the above'),
+    )
+    branch_choices=(
+    ('cse','Computer Science and Engineering'),
+    ('mnc','Mathematics and Computing'),
+    ('ece','Electrical and Communication Engineering'),
+    ('cer','Ceramic Engineering'),
+    ('None','None of the above'),
+    )
     roll_no = models.IntegerField(primary_key=True)
     name = models.CharField(max_length=30, blank=True, null=True)
-    branch = models.CharField(max_length=20, blank=True, null=True)
+    # branch = models.CharField(max_length=20, blank=True, null=True)
+    branch = models.CharField(max_length=5, choices=branch_choices)
     email = models.CharField(max_length=50, blank=True, null=True)
-    course = models.CharField(max_length=20, blank=True, null=True)
+    # course = models.CharField(max_length=20, blank=True, null=True)
+    course = models.CharField(max_length=9, choices=course_choices)
     passing_year = models.IntegerField(blank=True, null=True)
     mobile = models.CharField(max_length=15, blank=True, null=True)
     bank_acount_no = models.CharField(max_length=20, blank=True, null=True)
     ifs_code = models.CharField(max_length=20, blank=True, null=True)
     branch_address = models.CharField(max_length=255, blank=True, null=True)
+
     father_name = models.CharField(max_length=100, blank=True, null=True)
     home_address = models.CharField(max_length=255, blank=True, null=True)
     home_phone = models.CharField(max_length=20, blank=True, null=True)

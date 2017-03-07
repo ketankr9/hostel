@@ -12,8 +12,11 @@
       <h1>Sign In</h1>
       {% csrf_token %}
       {{ form.as_p }}
+      Institute Email
+      <input type="email" name="em" class="field-long" />
       <button type="submit">Login</button>
     </form>
+    <button type="submit"><a href="/signup/">Sign up</a></button>
 </div>
 
 {% endblock %}

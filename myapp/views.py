@@ -79,13 +79,25 @@ def register(request):
     response=render(request,'registeration.html',dic)
     return response
 def register2(request):
+    if not request.user.is_authenticated:
+        return HttpResponse('''LOGIN REQUIRED, then come here to register<br/> <a href="/signup/">Signup</a> <a href="/login/">Login</a>''')
+
     if request.method=='POST':
         form=ProfileForm(request.POST)
+        print "post received"
         if form.is_valid():
+            if request.user.username != form.cleaned_data['roll_no']:
+                print "Caught you"
+                return HttpResponse("Caught you!!!<br/>You can't register on behalf of your friend :(")
+            print "yes is valid"
             post=form.save(commit=False)
             post.save()
             return redirect('/')
+        else:
+            print "Not valid"
+            return HttpResponse("Your registeration is already done<br/>Please contact your administrator")
     else:
+        print "not post"
         form=ProfileForm()
 
     return render(request,'registeration2.html',{'form':form})
