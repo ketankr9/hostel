@@ -3,6 +3,9 @@ from myapp import views
 from django.contrib.auth import views as auth_views
 
 urlpatterns=[
+ #edited 
+ url(r'^index22/$',auth_views.login,{'template_name':'index2.html'},name="testt"),
+ #edited
  url(r'index2/$',views.index2,name="Home page of each hostel"),
  url(r'contactus/$',views.contactus,name="Contacts of each hostel"),
  url(r'grieverience/$',views.grieve,name="Grieverience page"),
