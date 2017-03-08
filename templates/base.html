@@ -32,11 +32,13 @@
     <![endif]-->
     <style type="text/css">
     	   .footer {
-                      clear: both;
-                      position: relative;
-                      z-index: 10;
-                      height: 3em;
-                      margin-top: -3em;
+                      position: absolute;
+           
+                      bottom: 50px;
+                      width: 200px;
+                      height: 100px;
+           text-align: center ;
+                                           
                 }
     </style>
   </head>
@@ -62,14 +64,13 @@
               <li class="active"><a href="#">Home</a></li>
               <li><a href="#">About</a></li>
               <li><a href="#">Contact</a></li>
-              <li class="dropdown">
-                <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Signup/Login <span class="caret"></span></a>
-                <ul class="dropdown-menu">
-                  <!--<li><a href="#">Signup</a></li>
-                  <li><a href="#">Login</a></li> -->
-                  
-                </ul>
-              </li>
+               {% if user.is_authenticated %}
+                   <li><a href="/logout/">Logout</a></li>
+               {% else %}
+                   <li><a href="/signup/">Signup</a></li>
+                   <li><a href="/login/">Signin</a></li>
+               {% endif %}
+              <li><a href="/discussion/">Discussion</a></li>
             </ul>
           </div><!--/.nav-collapse -->
         </div><!--/.container-fluid -->
@@ -88,6 +89,8 @@
     <!-- Bootstrap core JavaScript
     ================================================== -->
     <!-- Placed at the end of the document so the pages load faster -->
+ 
+	  <footer>
     <div class="footer">
         <div class="container">
             <div class="row">
@@ -120,6 +123,7 @@
         </div>
         <a id="to-top" href="#top" class="btn btn-dark btn-lg"><i class="fa fa-chevron-up fa-fw fa-1x"></i></a>
     </div>
+	  </footer>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
     <script>window.jQuery || document.write('<script src="{% static "base/jquery.min.js" %}" ><\/script>')</script>
     <script src="{% static "base/bootstrap.min.js" %}" ></script>
