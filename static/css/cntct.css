@@ -1,0 +1,66 @@
+
+// colors
+$icon-color: #fff;
+$text-color: #fff;
+$title-color: #a3baca;
+$primary: #3498db;
+$secondary: #215070;
+// font-size
+
+body {
+  background-color: #07283f;
+  padding-top: 100px;
+}
+
+.card {
+  background-color: $secondary;
+  display: table;
+  width: 100%;
+  height: 132px;
+  color: $primary;
+  overflow: hidden;
+  margin-bottom: 30px;
+  border-radius: 3px;
+  .icon {
+    width: 48px;
+    height: 100%;
+    display: table-cell;
+    position: relative;
+    &:after {
+      content: '';
+      height: 100%;
+      width: 0;
+      position: absolute;
+      right: -90px;
+      top: 0;
+      border-right: 90px solid transparent;
+      border-left: 0px;
+      border-bottom: 272px solid currentColor;
+    }
+    background-color: currentColor;
+    i {
+      position: absolute;
+      bottom:25px;
+      left: 25px;
+      color: $icon-color;
+      font-size: 28px;
+      z-index: 1;
+    }
+  }
+  .content-wrap {
+    padding: 10px;
+    padding-left: 62px;
+    display: table-cell;
+    vertical-align: middle;
+    .item-title {
+      display: inline-block;
+      font-size: 16px;
+      color: $title-color;
+      margin-bottom: 3px;
+    }
+    .text {
+      color: $text-color;
+      font-size: 15px;
+    }
+  }
+}

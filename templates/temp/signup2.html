@@ -1,0 +1,70 @@
+{% extends 'base.html' %}
+{% block title %}Registration{% endblock %}
+{% block cont1 %}sign up{%endblock%}
+{% block cont2 %}page{%endblock%}
+{% load staticfiles %}
+{% block content %}
+<style>
+
+
+.form-box {
+  width: 50%;
+  margin: auto;
+  padding-top:20px;
+}
+
+.form-box h1 {
+  text-align: center;
+  font-weight: bold;
+  text-transform: uppercase;
+  color: tomato;
+}
+
+.form-box h1 span {
+  font-weight: lighter;
+}
+</style>
+<div class="container">
+  <div class="row">
+    <div class="form-box">
+      <h1>Form <span>Registration</span></h1>
+      <form action="/signup/" method="post" id="contact-form">
+        <!-- name field -->
+        {% csrf_token %}
+        <div class="form-group">
+          <div id="nameError" class="sr-only" role="alert"></div>
+          <label for="form-name-field" class="sr-only">Username</label>
+          <div class="input-group">
+            <div class="input-group-addon"><span class="glyphicon glyphicon-user"></span></div>
+            <input type="text" name="username" class="form-control" id="form-name-field" value="" placeholder="Rollnumber">
+          </div>
+
+          <label for="form-name-field" class="sr-only">Password</label>
+          <div class="input-group">
+            <div class="input-group-addon"><span class="glyphicon glyphicon-user"></span></div>
+            <input type="text" name="passwd" class="form-control" name="passwd" id="form-name-field" value="" placeholder="Password">
+          </div>
+          <label for="form-name-field" class="sr-only">Retype Password</label>
+          <div class="input-group">
+            <div class="input-group-addon"><span class="glyphicon glyphicon-user"></span></div>
+            <input type="text" class="form-control" name="passwd2" id="form-name-field" value="" placeholder="Retype Password">
+          </div>
+          <div class="checkbox">
+            <label>
+              <input type="checkbox" id="checkbox-form"> I agree to terms and condition.
+            </label>
+        </div>
+        <div id="nameError" class="sr-only" role="alert"></div>
+
+
+        </div>
+        <button type="submit" class="btn btn-default">Submit</button>
+
+      </div>
+
+          </form>
+  </div>
+</div>
+</div>
+
+{% endblock %}

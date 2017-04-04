@@ -1,0 +1,95 @@
+{% extends 'base.html' %}
+{% block title %}About Us{% endblock %}
+{% block cont1 %}About {% endblock %}
+{% block cont2 %}Us{% endblock %}
+{% load staticfiles %}
+{% block content %}
+
+<link rel="stylesheet" type="text/css" href="{% static "css/abt.css" %} ">
+
+   <!-- Header -->
+    <a name="home"></a>
+    <div class="intro-header">
+      <div class="bg-overlay">
+        <div class="container">
+  
+
+            <div class="row">
+                <div class="col-lg-12">
+                    <div class="intro-message">
+                        <h1>IIT BHU Web Design Studio</h1>
+                        <h3>Where Awesomeness Is Brought To Life.</h3>
+                        <hr class="intro-divider">
+                      
+                    </div>
+                </div>
+            </div>
+
+        </div>
+        <!-- /.container -->
+      </div>
+    </div>
+    <!-- /.intro-header -->
+
+ <!-- Page Content -->
+
+	<a  name="about"></a>
+    <div class="content-section-a">
+      <div class="bg-overlay2">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-5 col-sm-6">
+                    
+                    <div class="clearfix"></div>
+                  <h2 class="section-heading">Web committee</h2>
+                  </br>
+                    <p class="lead"> Some text can be written here describing the work</p>
+                </div>
+                <div class="col-lg-5 col-lg-offset-2 col-sm-6 collapse navbar-collapse">
+                    <img class="img-circle img-responsive" src=" {% static "img/O_logo.png" %}" alt="">
+                </div>
+            </div>
+
+        </div>
+        <!-- /.container -->
+      </div>
+     </div>
+    </div>
+  
+
+    
+	<a  name="contact"></a>
+    <div class="banner">
+      <div class="bg-overlay4">
+        <div class="container">         
+            <div class="row">
+                <div class="col-lg-6">
+                  <h2 class="connect">Check out some of latest news at Website and Facebook page.</h2>
+                </div>
+              </br>
+      
+                <div class="col-lg-6">
+                    <ul class="list-inline banner-social-buttons">
+                        <li>
+                                <a href="http://iitbhu.ac.in/" target="_blank" class="btn btn-default btn-lg"><i class="fa fa-twitter fa-fw"></i> <span class="network-name">Website</span></a>
+                            </li>
+                            <li>
+                                <a href="https://www.facebook.com/IIT.bhu/" target="_blank" class="btn btn-default btn-lg "><i class="fa fa-github fa-fw"></i> <span class="network-name">Facebook</span></a>
+                            </li>
+                            
+                      
+                    </ul>
+                </div>
+        </div>
+        <!-- /.container -->
+    </div>
+</div>
+</div>
+</div>
+    <!-- /.banner --> 
+
+</body>
+
+{% endblock %}
+
+

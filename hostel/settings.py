@@ -28,7 +28,7 @@ SECRET_KEY = '09l1abzg1_w2()ky%fpj#eqh_y=c+181e3(u8%r93-*$6s@%oc'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['192.168.0.5','10.8.120.161',]
+ALLOWED_HOSTS = ['192.168.0.5','10.8.120.161','127.0.0.1']
 
 
 # Application definition
@@ -80,19 +80,19 @@ WSGI_APPLICATION = 'hostel.wsgi.application'
 # https://docs.djangoproject.com/en/1.10/ref/settings/#databases
 #
 # DATABASES = {
-#     'default': {
-#         'ENGINE': 'django.db.backends.sqlite3',
-#         'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
-#     }
-# }
+#      'default': {
+#          'ENGINE': 'django.db.backends.sqlite3',
+#          'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
+#      }
+#  }
 DATABASES = {
-    'default': {
-        'ENGINE': 'django.db.backends.mysql',
-        'NAME': 'hostelportal',
-        'USER': 'hostelportal',
-        'PASSWORD': 'root',
-        'HOST': 'localhost',
-        'PORT': '',
+   'default': {
+       'ENGINE': 'django.db.backends.mysql',
+       'NAME': 'hostelportal',
+       'USER': 'hostelportal',
+       'PASSWORD': 'root',
+       'HOST': 'localhost',
+       'PORT': '',
     }
 }
 

@@ -18,10 +18,16 @@ def index2(request):
 def contactus(request):
     dic={}
     return render(request,'contactus.html',dic)
+def contact(request):
+    dic={}
+    return render(request,'contact.html',dic)
 
 def grieve(request):
     dic={}
     return render(request,'grieve.html',dic)
+def about(request):
+    dic={}
+    return render(request,'about.html',dic)
 
 def login(request,num):
     dic={}
@@ -86,7 +92,8 @@ def register2(request):
         form=ProfileForm(request.POST)
         print "post received"
         if form.is_valid():
-            if request.user.username != form.cleaned_data['roll_no']:
+            print type(request.user.username),type(form.cleaned_data['roll_no'])
+            if int(request.user.username) != int(form.cleaned_data['roll_no']):
                 print "Caught you"
                 return HttpResponse("Caught you!!!<br/>You can't register on behalf of your friend :(")
             print "yes is valid"
@@ -100,7 +107,7 @@ def register2(request):
         print "not post"
         form=ProfileForm()
 
-    return render(request,'registeration2.html',{'form':form})
+    return render(request,'register.html',{'form':form})
 
 
 def studprofile(request,roll):
@@ -121,10 +128,10 @@ def signup(request):
     if request.method=='POST':
         data=request.POST
         print "DEBUG:POST received"
-        print data["passwd"]
+        # print data["username"]
         user=User.objects.create_user(data['username'],"",data['passwd'])
         user.save()
-        return render(request,'login.html',dic)
+        return HttpResponse('''Successfully signed up, Login<br/> <a href="/login/">Login</a>''')
     response=render(request,'signup2.html',dic)
     return response
 
