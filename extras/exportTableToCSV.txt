@@ -1,0 +1,1 @@
+mysql -u root --password=root -B -D hostelportal -e 'select * from profile' > profile.csv

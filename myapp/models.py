@@ -175,10 +175,19 @@ class Profile(models.Model):
     ('cer','Ceramic Engineering'),
     ('None','None of the above'),
     )
+    room_sec_choices=(
+    ('a','A'),
+    ('b','B'),
+    ('c','C'),
+    )
     roll_no = models.IntegerField(primary_key=True)
     name = models.CharField(max_length=30, blank=True, null=True)
     # branch = models.CharField(max_length=20, blank=True, null=True)
     branch = models.CharField(max_length=5, choices=branch_choices)
+    acad_fee = models.CharField(max_length=50, blank=True, null=True)
+    mess_fee = models.CharField(max_length=50, blank=True, null=True)
+    room_sec = models.CharField(max_length=10,choices = room_sec_choices ,blank=True, null=True)
+    room_no = models.IntegerField(blank=True, null=True)
     email = models.CharField(max_length=50, blank=True, null=True)
     # course = models.CharField(max_length=20, blank=True, null=True)
     course = models.CharField(max_length=9, choices=course_choices)
@@ -199,5 +208,425 @@ class Profile(models.Model):
         #order_with_respect_to = 'roll_no'
         db_table = 'profile'
         ordering=('roll_no',)
+    def __str__(self):
+        return ""+str(self.roll_no)+" "+self.name
+
+
+
+
+
+class Aryabhatta(models.Model):
+    roll_no = models.IntegerField(primary_key=True)
+    name = models.CharField(max_length=30, blank=True, null=True)
+    branch = models.CharField(max_length=20, blank=True, null=True)
+    acad_fee = models.CharField(max_length=255, blank=True, null=True)
+    mess_fee = models.CharField(max_length=255, blank=True, null=True)
+    room_sec = models.CharField(max_length=10, blank=True, null=True)
+    room_no = models.CharField(max_length=20, blank=True, null=True)
+    email = models.CharField(max_length=50, blank=True, null=True)
+    course = models.CharField(max_length=20, blank=True, null=True)
+    passing_year = models.IntegerField(blank=True, null=True)
+    mobile = models.CharField(max_length=15, blank=True, null=True)
+    bank_acount_no = models.CharField(max_length=20, blank=True, null=True)
+    ifs_code = models.CharField(max_length=20, blank=True, null=True)
+    branch_address = models.CharField(max_length=255, blank=True, null=True)
+    father_name = models.CharField(max_length=100, blank=True, null=True)
+    home_address = models.CharField(max_length=255, blank=True, null=True)
+    home_phone = models.CharField(max_length=20, blank=True, null=True)
+    guardian_phone = models.CharField(max_length=20, blank=True, null=True)
+    guardian_address = models.CharField(max_length=255, blank=True, null=True)
+
+    class Meta:
+        managed = False
+        db_table = 'aryabhatta'
+    def __str__(self):
+        return ""+str(self.roll_no)+" "+self.name
+
+
+class Cvraman(models.Model):
+    roll_no = models.IntegerField(primary_key=True)
+    name = models.CharField(max_length=30, blank=True, null=True)
+    branch = models.CharField(max_length=20, blank=True, null=True)
+    acad_fee = models.CharField(max_length=255, blank=True, null=True)
+    mess_fee = models.CharField(max_length=255, blank=True, null=True)
+    room_sec = models.CharField(max_length=10, blank=True, null=True)
+    room_no = models.CharField(max_length=20, blank=True, null=True)
+    email = models.CharField(max_length=50, blank=True, null=True)
+    course = models.CharField(max_length=20, blank=True, null=True)
+    passing_year = models.IntegerField(blank=True, null=True)
+    mobile = models.CharField(max_length=15, blank=True, null=True)
+    bank_acount_no = models.CharField(max_length=20, blank=True, null=True)
+    ifs_code = models.CharField(max_length=20, blank=True, null=True)
+    branch_address = models.CharField(max_length=255, blank=True, null=True)
+    father_name = models.CharField(max_length=100, blank=True, null=True)
+    home_address = models.CharField(max_length=255, blank=True, null=True)
+    home_phone = models.CharField(max_length=20, blank=True, null=True)
+    guardian_phone = models.CharField(max_length=20, blank=True, null=True)
+    guardian_address = models.CharField(max_length=255, blank=True, null=True)
+
+    class Meta:
+        managed = False
+        db_table = 'cvraman'
+    def __str__(self):
+        return ""+str(self.roll_no)+" "+self.name
+
+
+class Dhanrajgiri(models.Model):
+    roll_no = models.IntegerField(primary_key=True)
+    name = models.CharField(max_length=30, blank=True, null=True)
+    branch = models.CharField(max_length=20, blank=True, null=True)
+    acad_fee = models.CharField(max_length=255, blank=True, null=True)
+    mess_fee = models.CharField(max_length=255, blank=True, null=True)
+    room_sec = models.CharField(max_length=10, blank=True, null=True)
+    room_no = models.CharField(max_length=20, blank=True, null=True)
+    email = models.CharField(max_length=50, blank=True, null=True)
+    course = models.CharField(max_length=20, blank=True, null=True)
+    passing_year = models.IntegerField(blank=True, null=True)
+    mobile = models.CharField(max_length=15, blank=True, null=True)
+    bank_acount_no = models.CharField(max_length=20, blank=True, null=True)
+    ifs_code = models.CharField(max_length=20, blank=True, null=True)
+    branch_address = models.CharField(max_length=255, blank=True, null=True)
+    father_name = models.CharField(max_length=100, blank=True, null=True)
+    home_address = models.CharField(max_length=255, blank=True, null=True)
+    home_phone = models.CharField(max_length=20, blank=True, null=True)
+    guardian_phone = models.CharField(max_length=20, blank=True, null=True)
+    guardian_address = models.CharField(max_length=255, blank=True, null=True)
+
+    class Meta:
+        managed = False
+        db_table = 'dhanrajgiri'
+    def __str__(self):
+        return ""+str(self.roll_no)+" "+self.name
+
+
+class Gmscnew(models.Model):
+    roll_no = models.IntegerField(primary_key=True)
+    name = models.CharField(max_length=30, blank=True, null=True)
+    branch = models.CharField(max_length=20, blank=True, null=True)
+    acad_fee = models.CharField(max_length=255, blank=True, null=True)
+    mess_fee = models.CharField(max_length=255, blank=True, null=True)
+    room_sec = models.CharField(max_length=10, blank=True, null=True)
+    room_no = models.CharField(max_length=20, blank=True, null=True)
+    email = models.CharField(max_length=50, blank=True, null=True)
+    course = models.CharField(max_length=20, blank=True, null=True)
+    passing_year = models.IntegerField(blank=True, null=True)
+    mobile = models.CharField(max_length=15, blank=True, null=True)
+    bank_acount_no = models.CharField(max_length=20, blank=True, null=True)
+    ifs_code = models.CharField(max_length=20, blank=True, null=True)
+    branch_address = models.CharField(max_length=255, blank=True, null=True)
+    father_name = models.CharField(max_length=100, blank=True, null=True)
+    home_address = models.CharField(max_length=255, blank=True, null=True)
+    home_phone = models.CharField(max_length=20, blank=True, null=True)
+    guardian_phone = models.CharField(max_length=20, blank=True, null=True)
+    guardian_address = models.CharField(max_length=255, blank=True, null=True)
+
+    class Meta:
+        managed = False
+        db_table = 'gmscnew'
+    def __str__(self):
+        return ""+str(self.roll_no)+" "+self.name
+
+class Gmscold(models.Model):
+    roll_no = models.IntegerField(primary_key=True)
+    name = models.CharField(max_length=30, blank=True, null=True)
+    branch = models.CharField(max_length=20, blank=True, null=True)
+    acad_fee = models.CharField(max_length=255, blank=True, null=True)
+    mess_fee = models.CharField(max_length=255, blank=True, null=True)
+    room_sec = models.CharField(max_length=10, blank=True, null=True)
+    room_no = models.CharField(max_length=20, blank=True, null=True)
+    email = models.CharField(max_length=50, blank=True, null=True)
+    course = models.CharField(max_length=20, blank=True, null=True)
+    passing_year = models.IntegerField(blank=True, null=True)
+    mobile = models.CharField(max_length=15, blank=True, null=True)
+    bank_acount_no = models.CharField(max_length=20, blank=True, null=True)
+    ifs_code = models.CharField(max_length=20, blank=True, null=True)
+    branch_address = models.CharField(max_length=255, blank=True, null=True)
+    father_name = models.CharField(max_length=100, blank=True, null=True)
+    home_address = models.CharField(max_length=255, blank=True, null=True)
+    home_phone = models.CharField(max_length=20, blank=True, null=True)
+    guardian_phone = models.CharField(max_length=20, blank=True, null=True)
+    guardian_address = models.CharField(max_length=255, blank=True, null=True)
+
+    class Meta:
+        managed = False
+        db_table = 'gmscold'
+    def __str__(self):
+        return ""+str(self.roll_no)+" "+self.name
+
+class Limbdi(models.Model):
+    roll_no = models.IntegerField(primary_key=True)
+    name = models.CharField(max_length=30, blank=True, null=True)
+    branch = models.CharField(max_length=20, blank=True, null=True)
+    acad_fee = models.CharField(max_length=255, blank=True, null=True)
+    mess_fee = models.CharField(max_length=255, blank=True, null=True)
+    room_sec = models.CharField(max_length=10, blank=True, null=True)
+    room_no = models.CharField(max_length=20, blank=True, null=True)
+    email = models.CharField(max_length=50, blank=True, null=True)
+    course = models.CharField(max_length=20, blank=True, null=True)
+    passing_year = models.IntegerField(blank=True, null=True)
+    mobile = models.CharField(max_length=15, blank=True, null=True)
+    bank_acount_no = models.CharField(max_length=20, blank=True, null=True)
+    ifs_code = models.CharField(max_length=20, blank=True, null=True)
+    branch_address = models.CharField(max_length=255, blank=True, null=True)
+    father_name = models.CharField(max_length=100, blank=True, null=True)
+    home_address = models.CharField(max_length=255, blank=True, null=True)
+    home_phone = models.CharField(max_length=20, blank=True, null=True)
+    guardian_phone = models.CharField(max_length=20, blank=True, null=True)
+    guardian_address = models.CharField(max_length=255, blank=True, null=True)
+
+    class Meta:
+        managed = False
+        db_table = 'limbdi'
+    def __str__(self):
+        return ""+str(self.roll_no)+" "+self.name
+
+
+class Morvi(models.Model):
+    roll_no = models.IntegerField(primary_key=True)
+    name = models.CharField(max_length=30, blank=True, null=True)
+    branch = models.CharField(max_length=20, blank=True, null=True)
+    acad_fee = models.CharField(max_length=255, blank=True, null=True)
+    mess_fee = models.CharField(max_length=255, blank=True, null=True)
+    room_sec = models.CharField(max_length=10, blank=True, null=True)
+    room_no = models.CharField(max_length=20, blank=True, null=True)
+    email = models.CharField(max_length=50, blank=True, null=True)
+    course = models.CharField(max_length=20, blank=True, null=True)
+    passing_year = models.IntegerField(blank=True, null=True)
+    mobile = models.CharField(max_length=15, blank=True, null=True)
+    bank_acount_no = models.CharField(max_length=20, blank=True, null=True)
+    ifs_code = models.CharField(max_length=20, blank=True, null=True)
+    branch_address = models.CharField(max_length=255, blank=True, null=True)
+    father_name = models.CharField(max_length=100, blank=True, null=True)
+    home_address = models.CharField(max_length=255, blank=True, null=True)
+    home_phone = models.CharField(max_length=20, blank=True, null=True)
+    guardian_phone = models.CharField(max_length=20, blank=True, null=True)
+    guardian_address = models.CharField(max_length=255, blank=True, null=True)
+
+    class Meta:
+        managed = False
+        db_table = 'morvi'
+    def __str__(self):
+        return ""+str(self.roll_no)+" "+self.name
+
+class Rajputana(models.Model):
+    roll_no = models.IntegerField(primary_key=True)
+    name = models.CharField(max_length=30, blank=True, null=True)
+    branch = models.CharField(max_length=20, blank=True, null=True)
+    acad_fee = models.CharField(max_length=255, blank=True, null=True)
+    mess_fee = models.CharField(max_length=255, blank=True, null=True)
+    room_sec = models.CharField(max_length=10, blank=True, null=True)
+    room_no = models.CharField(max_length=20, blank=True, null=True)
+    email = models.CharField(max_length=50, blank=True, null=True)
+    course = models.CharField(max_length=20, blank=True, null=True)
+    passing_year = models.IntegerField(blank=True, null=True)
+    mobile = models.CharField(max_length=15, blank=True, null=True)
+    bank_acount_no = models.CharField(max_length=20, blank=True, null=True)
+    ifs_code = models.CharField(max_length=20, blank=True, null=True)
+    branch_address = models.CharField(max_length=255, blank=True, null=True)
+    father_name = models.CharField(max_length=100, blank=True, null=True)
+    home_address = models.CharField(max_length=255, blank=True, null=True)
+    home_phone = models.CharField(max_length=20, blank=True, null=True)
+    guardian_phone = models.CharField(max_length=20, blank=True, null=True)
+    guardian_address = models.CharField(max_length=255, blank=True, null=True)
+
+    class Meta:
+        managed = False
+        db_table = 'rajputana'
+    def __str__(self):
+        return ""+str(self.roll_no)+" "+self.name
+
+
+class Ramanujan(models.Model):
+    roll_no = models.IntegerField(primary_key=True)
+    name = models.CharField(max_length=30, blank=True, null=True)
+    branch = models.CharField(max_length=20, blank=True, null=True)
+    acad_fee = models.CharField(max_length=255, blank=True, null=True)
+    mess_fee = models.CharField(max_length=255, blank=True, null=True)
+    room_sec = models.CharField(max_length=10, blank=True, null=True)
+    room_no = models.CharField(max_length=20, blank=True, null=True)
+    email = models.CharField(max_length=50, blank=True, null=True)
+    course = models.CharField(max_length=20, blank=True, null=True)
+    passing_year = models.IntegerField(blank=True, null=True)
+    mobile = models.CharField(max_length=15, blank=True, null=True)
+    bank_acount_no = models.CharField(max_length=20, blank=True, null=True)
+    ifs_code = models.CharField(max_length=20, blank=True, null=True)
+    branch_address = models.CharField(max_length=255, blank=True, null=True)
+    father_name = models.CharField(max_length=100, blank=True, null=True)
+    home_address = models.CharField(max_length=255, blank=True, null=True)
+    home_phone = models.CharField(max_length=20, blank=True, null=True)
+    guardian_phone = models.CharField(max_length=20, blank=True, null=True)
+    guardian_address = models.CharField(max_length=255, blank=True, null=True)
+
+    class Meta:
+        managed = False
+        db_table = 'ramanujan'
+    def __str__(self):
+        return ""+str(self.roll_no)+" "+self.name
+
+
+class Saluja(models.Model):
+    roll_no = models.IntegerField(primary_key=True)
+    name = models.CharField(max_length=30, blank=True, null=True)
+    branch = models.CharField(max_length=20, blank=True, null=True)
+    acad_fee = models.CharField(max_length=255, blank=True, null=True)
+    mess_fee = models.CharField(max_length=255, blank=True, null=True)
+    room_sec = models.CharField(max_length=10, blank=True, null=True)
+    room_no = models.CharField(max_length=20, blank=True, null=True)
+    email = models.CharField(max_length=50, blank=True, null=True)
+    course = models.CharField(max_length=20, blank=True, null=True)
+    passing_year = models.IntegerField(blank=True, null=True)
+    mobile = models.CharField(max_length=15, blank=True, null=True)
+    bank_acount_no = models.CharField(max_length=20, blank=True, null=True)
+    ifs_code = models.CharField(max_length=20, blank=True, null=True)
+    branch_address = models.CharField(max_length=255, blank=True, null=True)
+    father_name = models.CharField(max_length=100, blank=True, null=True)
+    home_address = models.CharField(max_length=255, blank=True, null=True)
+    home_phone = models.CharField(max_length=20, blank=True, null=True)
+    guardian_phone = models.CharField(max_length=20, blank=True, null=True)
+    guardian_address = models.CharField(max_length=255, blank=True, null=True)
+
+    class Meta:
+        managed = False
+        db_table = 'saluja'
+    def __str__(self):
+        return ""+str(self.roll_no)+" "+self.name
+
+
+class Scdey(models.Model):
+    roll_no = models.IntegerField(primary_key=True)
+    name = models.CharField(max_length=30, blank=True, null=True)
+    branch = models.CharField(max_length=20, blank=True, null=True)
+    acad_fee = models.CharField(max_length=255, blank=True, null=True)
+    mess_fee = models.CharField(max_length=255, blank=True, null=True)
+    room_sec = models.CharField(max_length=10, blank=True, null=True)
+    room_no = models.CharField(max_length=20, blank=True, null=True)
+    email = models.CharField(max_length=50, blank=True, null=True)
+    course = models.CharField(max_length=20, blank=True, null=True)
+    passing_year = models.IntegerField(blank=True, null=True)
+    mobile = models.CharField(max_length=15, blank=True, null=True)
+    bank_acount_no = models.CharField(max_length=20, blank=True, null=True)
+    ifs_code = models.CharField(max_length=20, blank=True, null=True)
+    branch_address = models.CharField(max_length=255, blank=True, null=True)
+    father_name = models.CharField(max_length=100, blank=True, null=True)
+    home_address = models.CharField(max_length=255, blank=True, null=True)
+    home_phone = models.CharField(max_length=20, blank=True, null=True)
+    guardian_phone = models.CharField(max_length=20, blank=True, null=True)
+    guardian_address = models.CharField(max_length=255, blank=True, null=True)
+
+    class Meta:
+        managed = False
+        db_table = 'scdey'
+    def __str__(self):
+        return ""+str(self.roll_no)+" "+self.name
+
+
+class Snbose(models.Model):
+    roll_no = models.IntegerField(primary_key=True)
+    name = models.CharField(max_length=30, blank=True, null=True)
+    branch = models.CharField(max_length=20, blank=True, null=True)
+    acad_fee = models.CharField(max_length=255, blank=True, null=True)
+    mess_fee = models.CharField(max_length=255, blank=True, null=True)
+    room_sec = models.CharField(max_length=10, blank=True, null=True)
+    room_no = models.CharField(max_length=20, blank=True, null=True)
+    email = models.CharField(max_length=50, blank=True, null=True)
+    course = models.CharField(max_length=20, blank=True, null=True)
+    passing_year = models.IntegerField(blank=True, null=True)
+    mobile = models.CharField(max_length=15, blank=True, null=True)
+    bank_acount_no = models.CharField(max_length=20, blank=True, null=True)
+    ifs_code = models.CharField(max_length=20, blank=True, null=True)
+    branch_address = models.CharField(max_length=255, blank=True, null=True)
+    father_name = models.CharField(max_length=100, blank=True, null=True)
+    home_address = models.CharField(max_length=255, blank=True, null=True)
+    home_phone = models.CharField(max_length=20, blank=True, null=True)
+    guardian_phone = models.CharField(max_length=20, blank=True, null=True)
+    guardian_address = models.CharField(max_length=255, blank=True, null=True)
+
+    class Meta:
+        managed = False
+        db_table = 'snbose'
+    def __str__(self):
+        return ""+str(self.roll_no)+" "+self.name
+
+
+class Vishwakarma(models.Model):
+    roll_no = models.IntegerField(primary_key=True)
+    name = models.CharField(max_length=30, blank=True, null=True)
+    branch = models.CharField(max_length=20, blank=True, null=True)
+    acad_fee = models.CharField(max_length=255, blank=True, null=True)
+    mess_fee = models.CharField(max_length=255, blank=True, null=True)
+    room_sec = models.CharField(max_length=10, blank=True, null=True)
+    room_no = models.CharField(max_length=20, blank=True, null=True)
+    email = models.CharField(max_length=50, blank=True, null=True)
+    course = models.CharField(max_length=20, blank=True, null=True)
+    passing_year = models.IntegerField(blank=True, null=True)
+    mobile = models.CharField(max_length=15, blank=True, null=True)
+    bank_acount_no = models.CharField(max_length=20, blank=True, null=True)
+    ifs_code = models.CharField(max_length=20, blank=True, null=True)
+    branch_address = models.CharField(max_length=255, blank=True, null=True)
+    father_name = models.CharField(max_length=100, blank=True, null=True)
+    home_address = models.CharField(max_length=255, blank=True, null=True)
+    home_phone = models.CharField(max_length=20, blank=True, null=True)
+    guardian_phone = models.CharField(max_length=20, blank=True, null=True)
+    guardian_address = models.CharField(max_length=255, blank=True, null=True)
+
+    class Meta:
+        managed = False
+        db_table = 'vishwakarma'
+    def __str__(self):
+        return ""+str(self.roll_no)+" "+self.name
+
+
+class Vishweshvarayya(models.Model):
+    roll_no = models.IntegerField(primary_key=True)
+    name = models.CharField(max_length=30, blank=True, null=True)
+    branch = models.CharField(max_length=20, blank=True, null=True)
+    acad_fee = models.CharField(max_length=255, blank=True, null=True)
+    mess_fee = models.CharField(max_length=255, blank=True, null=True)
+    room_sec = models.CharField(max_length=10, blank=True, null=True)
+    room_no = models.CharField(max_length=20, blank=True, null=True)
+    email = models.CharField(max_length=50, blank=True, null=True)
+    course = models.CharField(max_length=20, blank=True, null=True)
+    passing_year = models.IntegerField(blank=True, null=True)
+    mobile = models.CharField(max_length=15, blank=True, null=True)
+    bank_acount_no = models.CharField(max_length=20, blank=True, null=True)
+    ifs_code = models.CharField(max_length=20, blank=True, null=True)
+    branch_address = models.CharField(max_length=255, blank=True, null=True)
+    father_name = models.CharField(max_length=100, blank=True, null=True)
+    home_address = models.CharField(max_length=255, blank=True, null=True)
+    home_phone = models.CharField(max_length=20, blank=True, null=True)
+    guardian_phone = models.CharField(max_length=20, blank=True, null=True)
+    guardian_address = models.CharField(max_length=255, blank=True, null=True)
+
+    class Meta:
+        managed = False
+        db_table = 'vishweshvarayya'
+    def __str__(self):
+        return ""+str(self.roll_no)+" "+self.name
+
+
+class Vivekananda(models.Model):
+    roll_no = models.IntegerField(primary_key=True)
+    name = models.CharField(max_length=30, blank=True, null=True)
+    branch = models.CharField(max_length=20, blank=True, null=True)
+    acad_fee = models.CharField(max_length=255, blank=True, null=True)
+    mess_fee = models.CharField(max_length=255, blank=True, null=True)
+    room_sec = models.CharField(max_length=10, blank=True, null=True)
+    room_no = models.CharField(max_length=20, blank=True, null=True)
+    email = models.CharField(max_length=50, blank=True, null=True)
+    course = models.CharField(max_length=20, blank=True, null=True)
+    passing_year = models.IntegerField(blank=True, null=True)
+    mobile = models.CharField(max_length=15, blank=True, null=True)
+    bank_acount_no = models.CharField(max_length=20, blank=True, null=True)
+    ifs_code = models.CharField(max_length=20, blank=True, null=True)
+    branch_address = models.CharField(max_length=255, blank=True, null=True)
+    father_name = models.CharField(max_length=100, blank=True, null=True)
+    home_address = models.CharField(max_length=255, blank=True, null=True)
+    home_phone = models.CharField(max_length=20, blank=True, null=True)
+    guardian_phone = models.CharField(max_length=20, blank=True, null=True)
+    guardian_address = models.CharField(max_length=255, blank=True, null=True)
+
+    class Meta:
+        managed = False
+        db_table = 'vivekananda'
     def __str__(self):
         return ""+str(self.roll_no)+" "+self.name

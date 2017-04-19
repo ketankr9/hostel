@@ -40,12 +40,25 @@
                         <li>
                            <a><br>Registrations</a>
                            <ul>
-                              <li><a href="/registration/"><br>Dhanrajgiri</a></li>                              
-                              <li><a href="/registration/"><br>C.V Raman</a></li>
-                              <li><a href="/registration/"><br>Ramanujan</a></li>                              
-                              <li><a href="/registration/"><br>S.N Bose</a></li>
-                              <li><a href="/registration/"><br>Aryabhatta</a></li>                              
-                             </li>
+                            {% if user.is_authenticated %}
+                            <li><a href="/registration/1/"><br>Aryabhatta</a></li>
+                            <li><a href="/registration/2/"><br>C.V Raman</a></li>
+                            <li><a href="/registration/3/"><br>Dhanrajgiri</a></li>
+                            <li><a href="/registration/4/"><br>GMSC NEW</a></li>
+                            <li><a href="/registration/5/"><br>GMSC OLD</a></li>
+                            <li><a href="/registration/6/"><br>Limbdi</a></li>
+                            <li><a href="/registration/7/"><br>Morvi</a></li>
+                            <li><a href="/registration/8/"><br>Rajputana</a></li>
+                            <li><a href="/registration/9/"><br>Ramanujan</a></li>
+                            <li><a href="/registration/10/"><br>Saluja</a></li>
+                            <li><a href="/registration/11/"><br>S.C Dey</a></li>
+                            <li><a href="/registration/12/"><br>S.N Bose</a></li>
+                            <li><a href="/registration/13/"><br>Vishwakarma</a></li>
+                            <li><a href="/registration/14/"><br>Vishweshvarayya</a></li>
+                            <li><a href="/registration/15/"><br>Vivekananda</a></li>
+                            {% else %}
+                            <li><a href="/login">Please Log In first</a></li>
+                            {% endif %}
                            </ul>
                         </li>
                         {% if user.is_authenticated %}
@@ -69,11 +82,11 @@
                        <li>
                            <a><br>Hostels</a>
                            <ul>
-                              <li><a href="#"><br>Dhanrajgiri</a></li>                              
+                              <li><a href="#"><br>Dhanrajgiri</a></li>
                               <li><a href="#"><br>C.V Raman</a></li>
-                              <li><a href="#"><br>Ramanujan</a></li>                              
+                              <li><a href="#"><br>Ramanujan</a></li>
                               <li><a href="#"><br>S.N Bose</a></li>
-                              <li><a href="#"><br>Aryabhatta</a></li>                              
+                              <li><a href="#"><br>Aryabhatta</a></li>
                              </li>
                            </ul>
                         </li>

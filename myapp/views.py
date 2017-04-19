@@ -109,7 +109,66 @@ def register2(request):
 
     return render(request,'register.html',{'form':form})
 
+def getHostelForm(request,num):
+    form=None
+    if num==1:
+        form=AryabhattaF(request.POST)
+    elif num==2:
+        form=CvramanF(request.POST)
+    elif num==3:
+        form=DhanrajgiriF(request.POST)
+    elif num==4:
+        form=GmscnewF(request.POST)
+    elif num==5:
+        form=GmscoldF(request.POST)
+    elif num==6:
+        form=LimbdiF(request.POST)
+    elif num==7:
+        form=MorviF(request.POST)
+    elif num==8:
+        form=RajputanaF(request.POST)
+    elif num==9:
+        form=RamanujanF(request.POST)
+    elif num==10:
+        form=SalujaF(request.POST)
+    elif num==11:
+        form=ScdeyF(request.POST)
+    elif num==12:
+        form=SnboseF(request.POST)
+    elif num==13:
+        form=VishwakarmaF(request.POST)
+    elif num==14:
+        form=VishweshvarayyaF(request.POST)
+    elif num==15:
+        form=VivekanandaF(request.POST)
+    return form
 
+def register3(request,num):
+    if not request.user.is_authenticated:
+        return HttpResponse('''LOGIN REQUIRED, come here when you had already logged in<br/> <a href="/signup/">Signup</a> <a href="/login/">Login</a>''')
+
+    if request.method=='POST':
+        form=getHostelForm(request,int(num))
+        print "post received",num
+        if form.is_valid():
+            print type(request.user.username),type(form.cleaned_data['roll_no'])
+            if int(request.user.username) != int(form.cleaned_data['roll_no']):
+                print "Caught you"
+                return HttpResponse("Caught you!!!<br/>You can't register on behalf of your friend :(")
+            print "yes is valid"
+            post=form.save(commit=False)
+            post.save()
+            return redirect('/')
+        else:
+            print "Not valid"
+            return HttpResponse("Your registeration is already done<br/>Please contact your administrator")
+
+
+    else:
+        print "GET Hostelnum",num
+        form=ProfileForm()
+
+    return render(request,'register.html',{'form':form,'redirectto':num})
 def studprofile(request,roll):
     #find details related to the `roll` number
     dic={"name":"Shubham","roll":"15074014","hostel":"Limbdi","room":"B235","year":"2","branch":"xyz","course":"IMD"}
@@ -134,6 +193,9 @@ def signup(request):
         return HttpResponse('''Successfully signed up, Login<br/> <a href="/login/">Login</a>''')
     response=render(request,'signup2.html',dic)
     return response
+def defaultPage(request):
+    return HttpResponse('''Page not found 404 <br/>Goto <a href="/">Homepage</a>''')
+
 
 def policy(request):
     pass

@@ -28,7 +28,7 @@
   <div class="row">
     <div class="form-box">
         <h1>Form <span>Registration</span></h1>
-          <form action="/registration/" method="post" id="contact-form">
+          <form action="/registration/{{ redirectto }}/" method="post" id="contact-form">
             {% csrf_token %}
               {{ form.as_p }}
           <!--
