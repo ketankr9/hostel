@@ -30,7 +30,16 @@
                         Hi {{ user.username }}!
                         {% endif %}</li>
                         <li><a href="/index/"><br>Home<br></a></li>
-                        <li><a href="/registration/"><br>Registration</a>
+                       <li>
+                           <a><br>Registrations</a>
+                           <ul>
+                              <li><a href="/registration/"><br>Dhanrajgiri</a></li>                              
+                              <li><a href="/registration/"><br>C.V Raman</a></li>
+                              <li><a href="/registration/"><br>Ramanujan</a></li>                              
+                              <li><a href="/registration/"><br>S.N Bose</a></li>
+                              <li><a href="/registration/"><br>Aryabhatta</a></li>                              
+                             </li>
+                           </ul>
                         </li>
                         {% if user.is_authenticated %}
                           <li><a href="/logout/"><br>Logout</a></li>
@@ -50,13 +59,15 @@
                         <li><a href="../design/gallery.html"><br>Gallery</a>
                         </li>
                         <li><a href="/discussion/">Discussion & <br> Grievances </a></li>
-                        <li>
+                       <li>
                            <a><br>Hostels</a>
                            <ul>
-                              <li><a>Company 1</a>
-                              </li>
-                              <li><a>Company 2</a>
-                              </li>
+                              <li><a href="#"><br>Dhanrajgiri</a></li>                              
+                              <li><a href="#"><br>C.V Raman</a></li>
+                              <li><a href="#"><br>Ramanujan</a></li>                              
+                              <li><a href="#"><br>S.N Bose</a></li>
+                              <li><a href="#"><br>Aryabhatta</a></li>                              
+                             </li>
                            </ul>
                         </li>
                         <li><a href="/contact/"><br>Contact</a>
