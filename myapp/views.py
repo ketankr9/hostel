@@ -186,11 +186,18 @@ def signup(request):
     print request.method
     if request.method=='POST':
         data=request.POST
-        print "DEBUG:POST received"
-        # print data["username"]
-        user=User.objects.create_user(data['username'],"",data['passwd'])
-        user.save()
-        return HttpResponse('''Successfully signed up, Login<br/> <a href="/login/">Login</a>''')
+        usernameList=map(str,AuthUser.objects.all())
+        if data['username'] not in usernameList:
+            for x in usernameList:
+                print str(x),type(x)
+            print "DEBUG:POST received"
+            user=User.objects.create_user(data['username'],"",data['passwd'])
+            user.save()
+            return HttpResponse('''Successfully signed up, Login<br/> <a href="/login/">Login</a>''')
+        else:
+            print "already registered"
+            return HttpResponse('''This username is already registered. <br/> Goto<a href="/">Homepage</a><br/> Goto <a href="/signup/">Signup</a>''')
+
     response=render(request,'signup2.html',dic)
     return response
 def defaultPage(request):
@@ -199,6 +206,21 @@ def defaultPage(request):
 
 def policy(request):
     pass
+def helpscreen(request):
+    dic={}
+    dic['heading']="False Error"
+    dic['heading2']="Following are the procedures for hostel registeration. It must be followed in given order."
+    dic['algorithm']=["Signup with your Roll number.","Login to your account.","Select your hostel from Registeration dropdown menu."
+    ,"Fill the registeration form with your OWN Roll number.","Take out the printout of the submitted form.",
+    "Submit it in the your hostel office with a passport size photograph."]
+    return render(request,'blueerror2.html',dic)
+
+def blueerror(request):
+    dic={}
+    dic['heading']="Error 404"
+    dic['heading2']="The page you were looking for was not found :("
+    dic['algorithm']=["step 1","Step 2","Step 3","Step 4"]
+    return render(request,'blueerror2.html',dic)
 
 # def createPDF(request):
 #     response = HttpResponse(content_type='application/pdf')

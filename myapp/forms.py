@@ -14,6 +14,7 @@ class ProfileForm(forms.ModelForm):
         fields = ('roll_no','name','acad_fee','mess_fee','room_sec','room_no','branch','email','course','passing_year','mobile','bank_acount_no','ifs_code','branch_address','father_name','home_address','home_phone','guardian_phone','guardian_address',)
 
 
+###### Hostel forms    #########
 class AryabhattaF(forms.ModelForm):
     class Meta:
         model= Aryabhatta

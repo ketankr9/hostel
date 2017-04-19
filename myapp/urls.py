@@ -21,7 +21,8 @@ urlpatterns=[
  url(r'policy/$',views.policy,name="Hostel policy page"),
  url(r'signup/$',views.signup,name="Sign up page"),
  # url(r'downloadForm',views.createPDF, name='index'),
- url(r'^$',views.index, name='index'),
-url(r'^',views.defaultPage, name='index'),
+url(r'help/$',views.helpscreen, name='Help page'),
+url(r'^$',views.index, name='index'),
+url(r'^',views.blueerror, name='Error  '),
 
  ]

@@ -1,24 +1,28 @@
 <html>
 <head>
-<title>- ooops! -</title>
+<title>ooops!</title>
 <link rel="stylesheet" href="404.css" type="text/css" media="all" />
 </head>
 <body>
-<span class="neg">ERROR 404</span>
+<span class="neg">{{ heading }}</span>
 <p>
-You just did something which you are not allowed to do. You can repeat it<br />
-again but in vain, or you can do what you are told to do.	
+<center>  {{ heading2 }} </center>
+<!-- You just did something which you are not allowed to do. You can repeat it<br />
+again but in vain, or you can do what you are told to do. -->
 </p>
 <p>
-* Send us an e-mail if you want and we won't respond.<br />
+{% for line in algorithm %}
+* {{ line }} <br />
+{% endfor %}
+<!-- * Send us an e-mail if you want and we won't respond.<br />
 
 * Press CTRL+ALT+DEL to restart your computer. You will<br />
- &nbsp; lose unsaved information in any programs that are running.
+ &nbsp; lose unsaved information in any programs that are running. -->
 </p>
 Press any link to continue <blink>_</blink>
 <div class="menu">
-<a href="/">Home Page</a> | 
-<a href="/contactus">webmaster</a> | 
+<a href="/">Home Page</a> |
+<a href="/contactus">webmaster</a> |
 </div>
 
 </body>
